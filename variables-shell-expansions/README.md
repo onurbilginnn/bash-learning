@@ -10,10 +10,10 @@ There are 3 types of parameters; <br>
 #### Shell Variables (Environment Variables)
 
 - Bourne Shell Variables
- - Bourne shell
- - Total 10
+  - Bourne shell
+  - Total 10
 
 - Bash Shell Variables 
- - Bash Shell
- - Bourne Again SHell (BASH)
- - Total 95
+  - Bash Shell
+  - Bourne Again SHell (BASH)
+  - Total 95
