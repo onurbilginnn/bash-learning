@@ -56,5 +56,5 @@ The PATH variable tells the shell where to search for executable files
 - 'source ~/.profile' command will update the terminal and you will see the updated paths when you run 'echo $PATH'
 
 ```diff
-- Avoid giving comflicting names to your scripts as you add them as PATH variable
+Avoid giving conflicting names to your scripts as you add them as PATH variable
 ```
