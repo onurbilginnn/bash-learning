@@ -44,4 +44,4 @@ If it is a "r" there is read permission else if it is a "-" no read permission a
 
 Best practice is to give read-write only to **file owner**, others could read
 
-- "chmod 744 <bash_script_filename>" -> 744 is octo number, just check (chmod calculator)[https://chmod-calculator.com/]
+- "chmod 744 <bash_script_filename>" -> 744 is octo number, just check [chmod calculator](https://chmod-calculator.com/)
