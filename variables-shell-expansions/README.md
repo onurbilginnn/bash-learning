@@ -42,3 +42,14 @@ Expansions will NOT modify the parameter_value
 - ```echo ${<parameter_name>:<start_index>}``` Will return substring of parameter_value by start index to the end
 - ```echo ${<parameter_name>: -3:2}``` Will return substring of parameter_value like 3rd character from the end of the parameter_value and total 2 characters from it. Do NOT forget the space! <br>
 Example; numbers parameter is 0123456789 ```echo ${numbers: -3:2}``` Will result 78
+
+#### Command Substitution
+
+- ```$(<command>)``` Will only show the **output** of the command
+
+#### Arithmetic Expansion
+
+- ```$((<expression>))``` Will only show the **output** of the expression (+, -, *, /, **, %)
+- For decimal calculations get help of ```bc``` command <br>
+```echo "scale=2; 5/2" | bc``` Will output 2.50, **scale** is for decimal places count <br>
+```echo "scale=2; 5^2" | bc``` Power operator is different with bc

@@ -1,0 +1,23 @@
+#!/opt/homebrew/bin/bash
+
+# Author: Onur Bilgin
+# Date Created: 10 Jun 2024
+# Last Modified: 10 Jun 2024
+
+# Description
+# Backup all files in the root directory and save them all in .tar archive
+
+# Usage
+# In parent folder run ./backup_script on terminal
+
+current_user="$USER"
+echo "Hello, ${current_user^}"
+
+currentdir=$(pwd)
+echo "Now will backup all files in $currentdir..."
+
+tar -cf $currentdir/my_backup_"$(date +%d-%m-%Y_%H-%M-%S)".tar  $currentdir 2>/dev/null
+
+echo "Backup is now complete"
+
+exit 0
