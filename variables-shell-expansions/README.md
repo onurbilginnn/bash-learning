@@ -52,4 +52,4 @@ Example; numbers parameter is 0123456789 ```echo ${numbers: -3:2}``` Will result
 - ```$((<expression>))``` Will only show the **output** of the expression (+, -, *, /, **, %)
 - For decimal calculations get help of ```bc``` command <br>
 ```echo "scale=2; 5/2" | bc``` Will output 2.50, **scale** is for decimal places count <br>
-```echo "scale=2; 5^2" | bc``` Power operator is different with bc
+```echo "5^2" | bc``` Power operator is different with bc

@@ -13,6 +13,6 @@ echo $(( x / y ))
 echo $(( x ** y )) # Power operator
 echo $(( x % z )) # Modular operator
 echo "scale=2; 5/2" | bc
-echo "scale=2; 5^2" | bc # Power operator is different with bc
+echo "5^2" | bc # Power operator is different with bc
 
 exit 0
