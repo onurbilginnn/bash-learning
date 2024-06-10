@@ -29,10 +29,6 @@ Then run -->source ~/.bashrc<-- to update bash shell without restarting terminal
 ##### Bash Shell Variables 
 - Bash Shell, Bourne Again SHell (BASH), Total 95
 
-```
-// Will change default shell to bash
-chsh -s /bin/bash
-```
 #### Parameter Expansions
 
 Expansions will NOT modify the parameter_value

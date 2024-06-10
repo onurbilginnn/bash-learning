@@ -25,3 +25,8 @@
 - Scripts allow automation.
 - Save time.
 - Increase reliability.
+
+```
+// Will change default shell to bash
+chsh -s /bin/bash
+```
