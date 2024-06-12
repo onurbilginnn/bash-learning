@@ -138,7 +138,8 @@ A process the shell performs to split the result of some **unquoted** expansions
 - ```IFS=","``` -> ```numbers=1,2,3,4,5``` -> ```touch "$numbers"``` will create 5 individual files named 1 - 2 - 3 - 4 - 5, because IFS parameter defined to ',' comma, bash will seperate numbers variable as 1 - 2 - 3 - 4 - 5
 
 ```diff
-+ If you want the output of a **parameter expansion**, **arithmetic expansion** and **command substitution** to be considered as a single word: Wrap that expansion in " double quotes!
++ If you want the output of a parameter expansion, arithmetic expansion and command substitution
++ to be considered as a single word: Wrap that expansion in " double quotes!
 ```
 
 - Stage 4: Globbing
