@@ -123,11 +123,14 @@ echo $name has $(( 1 + 2 )) apples
   - Tiled Expansion
 
 - Stage 3: Word Splitting <br>
-A process the shell performs to split the result of some unquoted expansions into seperate words.
-  - Word splitting is only performed on the results of unquoted:
+A process the shell performs to split the result of some **unquoted** expansions into seperate words.
+  - Word splitting is only performed on the results of **unquoted**:
     - Parameter expansions
     - Command substitutions
     - Arithmetic expansions
-  - The characters used to split words are governed by the IFS(Internal Field Separator) variable.
+  - The characters used to split words are governed by the **IFS**(Internal Field Separator) variable.
+    - Space, tab and newline
+```echo $IFS``` will show blank lines <br>
+```echo ${IFS@Q}``` will show ```$' \t\n'``` representative characters for space, tab, newline.
 
 - Stage 4: Globbing
