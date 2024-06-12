@@ -33,6 +33,7 @@ Then run ```source ~/.bashrc``` to update bash shell without restarting terminal
 
 Expansions will NOT modify the parameter_value
 
+- ```<parameter_name>=<parameter_value>```
 - ```echo ${<parameter_name>,}``` Will change parameter_value first character to lower case
 - ```echo ${<parameter_name>,,}``` Will change parameter_value characters to lower case
 - ```echo ${<parameter_name>^}``` Will change parameter_value first character to upper case

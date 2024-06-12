@@ -29,6 +29,23 @@ We often add quotes to control how the command is interpreted, so this step will
 ```diff
 + After completing these 5 steps, bash will then execute the command line that is left over.
 ```
+#### Quoting
+
+Quoting is about **Removing Special Meanings**
+
+##### Quoting Types
+
+1 - Backslash ```\``` removes special meaning from **next** character
+
+2 - Single Quotes ```' '``` removes special meaning from all characters inside, they can NOT contain single quote ```'```
+
+3 - Double Quotes ```" "``` removes special meaning from all except dollar signs ```$``` and backticks``` ` ```
+
+- ```echo john & jane``` will return error
+- ```echo john \& jane``` will show ```john & jane```
+- ```filepath=C:\\Users\\onurbilgin\\Documents``` ```echo $filepath``` will show ```C:\Users\onurbilgin\Documents```
+- ```filepath='C:\Users\onurbilgin\Documents'``` ```echo $filepath``` will show ```C:\Users\onurbilgin\Documents```
+- ```filepath="C:\Users\\$USER\Documents"``` ```echo $filepath``` will show ```C:\Users\onurbilgin\Documents```, escape backslash used for ```$``` sign
 
 #### Tokenisation
 
@@ -76,20 +93,41 @@ echo "hello world"
 fi
 ```
 
-#### Quoting
+#### Expansions
 
-Quoting is about **Removing Special Meanings**
+Expansions in earlier **stages** are performed first.
 
-##### Quoting Types
+You can NOT do;
+```
+x=10
+echo {1..$x}
+```
 
-1 - Backslash ```\``` removes special meaning from **next** character
+Expansions that are in the same stage are all given the same priority, and are simply performed in the order thay are found on the command line when it is read from left to right.
+```
+echo $name has $(( 1 + 2 )) apples
+```
 
-2 - Single Quotes ```' '``` removes special meaning from all characters inside, they can NOT contain single quote ```'```
+```echo $name has {1..3} apples and $(( 5 + 2)) oranges``` brace expansion will execute first.
 
-3 - Double Quotes ```" "``` removes special meaning from all except dollar signs ```$``` and backticks``` ` ```
+```echo $name{1..3}.txt``` will print .txt .txt .txt because brace expansion comes before parameter expansion
 
-- ```echo john & jane``` will return error
-- ```echo john \& jane``` will show ```john & jane```
-- ```filepath=C:\\Users\\onurbilgin\\Documents``` ```echo $filepath``` will show ```C:\Users\onurbilgin\Documents```
-- ```filepath='C:\Users\onurbilgin\Documents'``` ```echo $filepath``` will show ```C:\Users\onurbilgin\Documents```
-- ```filepath="C:\Users\\$USER\Documents"``` ```echo $filepath``` will show ```C:\Users\onurbilgin\Documents```, escape backslash used for ```$``` sign
+##### Expansion Stages
+
+- Stage 1: Brace Expansion
+
+- Stage 2: 
+  - Parameter Expansion
+  - Arithmetic Expansion
+  - Command Substitution
+  - Tiled Expansion
+
+- Stage 3: Word Splitting <br>
+A process the shell performs to split the result of some unquoted expansions into seperate words.
+  - Word splitting is only performed on the results of unquoted:
+    - Parameter expansions
+    - Command substitutions
+    - Arithmetic expansions
+  - The characters used to split words are governed by the IFS(Internal Field Separator) variable.
+
+- Stage 4: Globbing
