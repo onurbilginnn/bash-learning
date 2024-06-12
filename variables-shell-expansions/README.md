@@ -53,3 +53,36 @@ Example; numbers parameter is 0123456789 ```echo ${numbers: -3:2}``` Will result
 - For decimal calculations get help of ```bc``` command <br>
 ```echo "scale=2; 5/2" | bc``` Will output 2.50, **scale** is for decimal places count in the output <br>
 ```echo "5^2" | bc``` Power operator is different with bc
+
+#### Tilde Expansion
+
+- tilde redirects you directly to $HOME environment variable path value ```echo ~``` will show $HOME value
+- ```echo ~colleague``` will show ```/Users/colleague```, if colleague is a valid user
+- ```echo ~root``` will show ```/var/root```
+- ```pwd``` or ```echo $PWD``` will show working directory (PWD -> Print Working Directory)
+- ```echo $OLDPWD``` will show **previous** working directory
+- ```cd ~+``` will expand to PWD
+- ```cd ~-``` will toggle between home and OLDPWD
+
+#### Brace Expansion
+
+##### Brace Expansion String Lists
+
+- ```echo {a,19,z,barry,42}``` will show list without comma (Comma between commas will be interpreted as a character)
+- ```echo {1,2,3,4,5,6,7,8,10}``` -> ```echo {1..10}``` both same 2nd is range list
+
+##### Brace Expansion Range Lists
+
+- ```echo {10..1}``` 10 to 1
+- ```echo {a..z}``` a to z
+- If range is not acceptable by the computer it will directly print same text to the terminal <br>
+```echo {jan..dec}``` will show {jan..dec}
+
+##### Brace Expansion Incrementions
+
+- ```echo {1..1000..3}``` 1 to 1000 by incrementing by 3 -> 1 4 7 10 ..... 1000
+
+##### Brace Expansion Prefixes & PostFixes
+
+- ```mkdir month{01..12}``` will add month01 month02 .... month12 folders to the current directory
+- ```touch month{01..12}/day{01..31}.txt``` will add day01.txt day02.txt .... day31.txt folders to the month01 month02 .... month12 directories
