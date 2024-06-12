@@ -28,6 +28,19 @@ We often add quotes to control how the command is interpreted, so this step will
 + After completing these 5 steps, bash will then execute the command line that is left over.
 ```
 
+#### Tokenisation
+
+**Metacharacters** are like **punctuation**.
+
+The diff for a token that is interpreted as a **word** or **operator** is **unquoted metacharacter**.
+
+##### Types of Operators
+
+1 - Control operators -> ```newline | || & && ; ;; ;& ;;& |& ( )```
+2 - Redirection operators -> ```< > << >> <& >| <<- <> >&```
+
+Control operators + Redirection operators only matter if they are **unquoted**.
+
 #### Quoting
 
 Quoting is about **Removing Special Meanings**
@@ -36,6 +49,12 @@ Quoting is about **Removing Special Meanings**
 
 1 - Backslash ```\``` removes special meaning from **next** character
 
-2 - Single Quotes ```' '``` removes special meaning from all characters inside
+2 - Single Quotes ```' '``` removes special meaning from all characters inside, they can NOT contain single quote ```'```
 
 3 - Double Quotes ```" "``` removes special meaning from all except dollar signs ```$``` and backticks``` ` ```
+
+- ```echo john & jane``` will return error
+- ```echo john \& jane``` will show ```john & jane```
+- ```filepath=C:\\Users\\onurbilgin\\Documents``` ```echo $filepath``` will show ```C:\Users\onurbilgin\Documents```
+- ```filepath='C:\Users\onurbilgin\Documents'``` ```echo $filepath``` will show ```C:\Users\onurbilgin\Documents```
+- ```filepath="C:\Users\\$USER\Documents"``` ```echo $filepath``` will show ```C:\Users\onurbilgin\Documents```, escape backslash used for ```$``` sign
