@@ -6,6 +6,8 @@
 Shell looks for "Metacharacters" in order to understand where token starts ends. <br>
 Metacharacters -> ```| & ; ( ) < > space tab newline``` <br>
 
+Types of tokens;
+
 **word** is a token that does NOT contain an "unquoted" metacharacter.
 
 **operator** is a token that contains at least 1 "unquoted" metacharacter.
@@ -40,6 +42,25 @@ The diff for a token that is interpreted as a **word** or **operator** is **unqu
 2 - Redirection operators -> ```< > << >> <& >| <<- <> >&```
 
 Control operators + Redirection operators only matter if they are **unquoted**.
+
+- ```echo $name > out.txt``` Metacharacters in this text: 3 spaces, greater than sign ```>``` -> redirection operator; "echo" "$name" "out.txt" are words are in this text.
+
+#### Command Identification
+
+##### Command Types
+
+1 - Simple commands (most common);
+
+ - ```echo 1 2 3``` -> Word "echo" is **command name**, "1 2 3" are **individual arguments** for the command. Terminated by invisible newline control operator.
+
+All simple commands are terminated by as control operator.
+
+- ```echo a b c echo 1 2 3``` -> will print ```a b c echo 1 2 3``` as there is no parameter.
+- ```echo a b c; echo 1 2 3``` -> will print 
+```
+a b c
+1 2 3
+```
 
 #### Quoting
 
