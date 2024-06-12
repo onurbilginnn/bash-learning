@@ -128,9 +128,17 @@ A process the shell performs to split the result of some **unquoted** expansions
     - Parameter expansions
     - Command substitutions
     - Arithmetic expansions
-  - The characters used to split words are governed by the **IFS**(Internal Field Separator) variable.
+  - The characters used to split words are governed by the **IFS**(Internal Field Separator) ```$IFS``` variable.
     - Space, tab and newline
-```echo $IFS``` will show blank lines <br>
-```echo ${IFS@Q}``` will show ```$' \t\n'``` representative characters for space, tab, newline.
+- ```echo $IFS``` will show blank lines.
+- ```echo ${IFS@Q}``` will show ```$' \t\n'``` representative characters for space, tab, newline.
+- ```numbers=1 2 3 4 5``` -> ```touch $numbers``` will create 5 individual files named 1 - 2 - 3 - 4 - 5
+- ```numbers=1 2 3 4 5``` -> ```touch "$numbers"``` will create 1 file named '1 2 3 4 5', because of ```"``` double quotes
+- ```numbers=1,2,3,4,5``` -> ```touch "$numbers"``` will create 1 file named '1,2,3,4,5'
+- ```IFS=","``` -> ```numbers=1,2,3,4,5``` -> ```touch "$numbers"``` will create 5 individual files named 1 - 2 - 3 - 4 - 5, because IFS parameter defined to ',' comma, bash will seperate numbers variable as 1 - 2 - 3 - 4 - 5
+
+```diff
++ If you want the output of a **parameter expansion**, **arithmetic expansion** and **command substitution** to be considered as a single word: Wrap that expansion in " double quotes!
+```
 
 - Stage 4: Globbing
