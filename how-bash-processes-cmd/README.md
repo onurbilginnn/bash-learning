@@ -27,3 +27,15 @@ We often add quotes to control how the command is interpreted, so this step will
 ```diff
 + After completing these 5 steps, bash will then execute the command line that is left over.
 ```
+
+#### Quoting
+
+Quoting is about **Removing Special Meanings**
+
+##### Quoting Types
+
+1 - Backslash ```\``` removes special meaning from **next** character
+
+2 - Single Quotes ```' '``` removes special meaning from all characters inside
+
+3 - Double Quotes ```" "``` removes special meaning from all except dollar signs ```$``` and backticks``` ` ```
