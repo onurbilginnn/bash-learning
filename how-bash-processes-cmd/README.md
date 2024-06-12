@@ -55,11 +55,23 @@ Control operators + Redirection operators only matter if they are **unquoted**.
 
 All simple commands are terminated by as control operator.
 
-- ```echo a b c echo 1 2 3``` -> will print ```a b c echo 1 2 3``` as there is no parameter.
-- ```echo a b c; echo 1 2 3``` -> will print 
+- ```echo a b c echo 1 2 3``` -> will print ```a b c echo 1 2 3``` as there is no operator.
+- ```echo a b c; echo 1 2 3``` -> will print 2 seperate lines in 1 line thanks to ```;``` operator
 ```
 a b c
 1 2 3
+```
+as there is ```;``` operator between lines.
+
+2 - Compound commands; are essentially bash's programming constructs.
+
+Each compound command starts with a **reserved word** and is terminated by a corresponding **reserved word**
+
+- Compound command can be written over multiple lines;
+```
+if [[2 -gt 1]]; then
+echo "hello world"
+fi
 ```
 
 #### Quoting
