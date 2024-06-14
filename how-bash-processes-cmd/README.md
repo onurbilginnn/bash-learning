@@ -149,7 +149,7 @@ A process the shell performs to split the result of some **unquoted** expansions
 ```
 
 - Stage 4: Globbing
-  - Originates from "glob" program present in early versions of **Bell Lab's Unix** operating system from 1969-19675.
+  - Originates from "glob" program present in early versions of **Bell Lab's Unix** operating system from 1969-1975.
   - Globbing is used as a shortcut for listing the files that a command should operate on.
   - Globbing is only performed on **words** (NOT operators)
   - Globbing **patterns** are words that contain unquoted **Special Pattern Characters**:
