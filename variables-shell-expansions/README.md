@@ -1,8 +1,8 @@
 ### Parameter
 
-A parameter is any entity that stores values <br>
-There are 3 types of parameters; <br>
+A parameter is any entity that stores values
 
+There are 3 types of parameters;
 - Variables -> A parameter whose values you can manually change
 - Positional parameters
 - Special parameters
