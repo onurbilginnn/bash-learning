@@ -56,6 +56,7 @@ The diff for a token that is interpreted as a **word** or **operator** is **unqu
 ##### Types of Operators
 
 1 - Control operators -> ```newline | || & && ; ;; ;& ;;& |& ( )```
+
 2 - Redirection operators -> ```< > << >> <& >| <<- <> >&```
 
 Control operators + Redirection operators only matter if they are **unquoted**.
@@ -136,7 +137,7 @@ A process the shell performs to split the result of some **unquoted** expansions
   - The characters used to split words are governed by the **IFS**(Internal Field Separator) ```$IFS``` variable.
     - Space, tab and newline
   - ```echo $IFS``` will show blank lines.
-  - ```echo ${IFS@Q}``` will show ```$' \t\n'``` representative characters for space, tab, newline.
+  - ```echo ${IFS@Q}``` to view what characters IFS variable currently contains.
   - ```numbers=1 2 3 4 5``` -> ```touch $numbers``` will create 5 individual files named 1 - 2 - 3 - 4 - 5
   - ```numbers=1 2 3 4 5``` -> ```touch "$numbers"``` will create 1 file named '1 2 3 4 5', because of ```"``` double quotes
   - ```numbers=1,2,3,4,5``` -> ```touch "$numbers"``` will create 1 file named '1,2,3,4,5'
@@ -154,7 +155,8 @@ A process the shell performs to split the result of some **unquoted** expansions
   - Globbing **patterns** are words that contain unquoted **Special Pattern Characters**:
     - * -> Zero or more occurences of any character
     - ? -> Any single character, at least 1 character required
-    - [] -> Any character between square brackets required -> file[abc] -> filea, fileb, filec
+    - [] -> Any enclosed character between square brackets required -> file[abc] -> filea, fileb, filec
+    - [!] -> Any character between square brackets required -> file[!] -> filea, fileb, filec, filex, filep, etc...
   - ```ls *.txt``` will list all txt files in the folder
   - ```ls file?.txt``` will list all file(any character).txt; file**a**.txt, file**z**.txt, file**q**.txt, etc...
   - ```ls file???.txt``` file**wza**.txt, file**ztu**.txt, file**qhg**.txt, etc...
@@ -190,6 +192,7 @@ stdin -> 0 -> Command 2 -> stderr
 - ```cd /root 2> error.txt``` will create error.txt and write the error in it, but NOT print
 - ```cd /root &> /dev/null``` will redirect error message to /dev/null in which everything will be deleted immediately.
 
+- ```<``` redirects the contents of the file to the stdin of command
 - ```>``` for stdout, ```2>``` for stderr, ```&>``` for stdout and stderr
 - ```>``` 1 arrow means that the contents of the destination file will be deleted, before writing the output or the error to the file.
 
