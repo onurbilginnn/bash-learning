@@ -74,7 +74,9 @@ The first word of a simple command is interpreted as the **command name**, and t
 
  - ```echo 1 2 3``` -> Word "echo" is **command name**, "1 2 3" are **individual arguments** for the command. Terminated by invisible newline control operator.
 
-All simple commands are terminated by a control operator.
+```diff
+! All simple commands are terminated by a control operator.
+```
 
 - ```echo a b c echo 1 2 3``` -> will print ```a b c echo 1 2 3``` as there is no operator.
 - ```echo a b c; echo 1 2 3``` -> will print 2 seperate lines with 1 line command thanks to ```;``` operator
@@ -84,7 +86,9 @@ a b c
 ```
 2 - Compound commands; are essentially bash's programming constructs.
 
-Each compound command starts with a **reserved word** and is ended by a corresponding **reserved word**
+```diff
+! Each compound command starts with a **reserved word** and is ended by a corresponding **reserved word**
+```
 
 - Compound command can be written over multiple lines;
 ```
@@ -119,7 +123,7 @@ echo $name has $(( 1 + 2 )) apples
 - Stage 2: 
   - Parameter Expansion
   - Arithmetic Expansion
-  - Command Substitution
+  - Command Substitution; will create a sub shell and do all steps 1 by 1 inside the command (Tokenisation, Command identification, expansion, quote removal, redirection)
   - Tilde Expansion
 
 - Stage 3: Word Splitting <br>
@@ -193,7 +197,7 @@ stdin -> 0 -> Command 2 -> stderr
 
 ### Example
 
-```1st example
+```
 #!/bin/bash
 IFS="."
 name="Onat.Bilgin"
@@ -202,7 +206,7 @@ echo "$name" > "~/$out"
 ```
 
 - 1 Tokenization; words: echo, $name, $out, operators: ```>```
-- 2 Command identification; ```echo >``` command with redirection operator
+- 2 Command identification; single command ```echo "$name" > "~/$out"```
 - 3 Expansions; 
   - stage 2; two parameter expansions will be resolved $, tilde expansion won't be resolved because it is quoted so won't be seen as an expansion
   - stage 3; as we put $name parameter in double quotes the ```.``` inside it will NOT be resolved as word splitting, because it is quoted.
@@ -211,3 +215,11 @@ echo "$name" > "~/$out"
 - To be able to add tilde expansion and word splitting; fixed command is as below
 - ```echo $name > ~"/$out"```
 
+```echo "$(ls *.txt)"```
+
+- 1 Tokenization; words: echo, $(ls *.txt)
+- 2 Command identification; ```echo``` command, $(ls *.txt) argument
+- 3 Expansions;
+  - stage 2; command substitution; will do all stages again on the command inside ```ls *.txt```, there is globbing inside then subshell executes the command; there is no word splitting for parent shell command because of double quotes
+- 4 Quote Removal; removing double quotes
+- 5 Redirection; no redirection
