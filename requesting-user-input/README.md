@@ -21,3 +21,30 @@ Value of a special parameter is calculated for us based on our current script.
 - ```$*``` exactly same as ```$@```
 - ```"$*``` return values of the positional parameters by adding IFS variable between. Provides all positional parameters as **one word**, but separated by the **first character of the IFS** variable. NOT subject to further word splitting.<br>
 Ex; ```IFS=,``` -> ```"$*"``` will print ```$1,$2,$3....,$N```
+
+### READ Command
+
+- ```read``` command will store user input in $REPLY variable
+- ```read input1 input2``` command will store user input in input1 and input2 variables
+- ```read -p "What is your name?" name``` ```-p``` prompts "What is your name?" then store user input in name variable.
+- ```read -t 5 -p "What are you doing ? " job``` ```-t 5``` read prompt will timeout after 5 seconds
+- ```read -s -t 5 -p "What is your password ? " password``` ```-s``` secret keyword will hide what input is written in terminal, but it still stores the value in password variable
+
+### Select Command
+
+- ```select``` command will store user input in $RESPONSE variable
+- ```select input1``` command will store user input in input1 variable
+```select day in mon tue wed thu fri sat sun;``` command will store user input in day selection should be [mon, tue, wed..., sun] values.
+- ```do``` command says bash what to do after selection
+- As default if you select one option select will loop and wait for new response, in order to cancel loop use ```break``` command in ```do-done``` block.
+- ```PS3``` shell variable adds select command a prompt like read command ```-p``` flag.
+- Latest code block;
+```
+PS3="What is the day of the week?: "
+
+select day in mon tue wed thu fri sat sun;
+do
+echo "The day of the week is $day"
+break
+done 
+```
