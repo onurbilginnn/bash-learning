@@ -35,7 +35,7 @@ Ex; ```IFS=,``` -> ```"$*"``` will print ```$1,$2,$3....,$N```
 - ```select``` command will store user input in $RESPONSE variable
 - ```select input1``` command will store user input in input1 variable
 ```select day in mon tue wed thu fri sat sun;``` command will store user input in day selection should be [mon, tue, wed..., sun] values.
-- ```do``` command says bash what to do after selection
+- ```do``` and ```done``` block says bash what to do after selection
 - As default if you select one option select will loop and wait for new response, in order to cancel loop use ```break``` command in ```do-done``` block.
 - ```PS3``` shell variable adds select command a prompt like read command ```-p``` flag.
 - Latest code block;
