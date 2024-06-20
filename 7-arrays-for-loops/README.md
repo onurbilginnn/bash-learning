@@ -10,10 +10,10 @@
 - ```echo ${numbers[@]:1:2}``` will show all values from index one with length 2 -> 2 3
 - ```numbers+=(5)``` will add number 5 to the array -> 1 2 3 4 5
 - ```unset numbers[<index>]``` will **remove** indexed element from array
-- ```echo ${!numbers[@]}``` will show all indexes of the elements
 ```diff
 + if we unset (remove) an element from the array index also will be deleted.
 ```
+- ```echo ${!numbers[@]}``` will show all indexes of the elements
 - ```numbers[0]=a``` added `a` element to index 0
 
 ### readarray command
@@ -23,7 +23,7 @@
 - ```readarray days < ./files/days.txt``` will create an indexed array named **days**
 - ```echo ${days[@]@Q}``` wil show stored elements in the array with unseen characters such as newline character
 - ```readarray -t days < ./files/days.txt``` will create an indexed array named **days** with only **raw data, NO newline character**
-- ```readarray -t arrayfiles < <(ls ~/Desktop/Coding/Linux/bash/arrays-for-loops/array/*)``` will create arrayfiles indexed array with `ls` command output
+- ```readarray -t arrayfiles < <(ls ./files/*)``` will create arrayfiles indexed array with `ls` command output
 
 ### For loops
 
