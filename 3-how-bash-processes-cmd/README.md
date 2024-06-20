@@ -39,7 +39,7 @@ Quoting is about **Removing Special Meanings**
 
 2 - Single Quotes ```' '``` removes special meaning from all characters inside, they can NOT contain single quote ```'```
 
-3 - Double Quotes ```" "``` removes special meaning from all except dollar signs ```$``` and backticks``` ` ```
+3 - Double Quotes ```" "``` removes special meaning from all except dollar signs ```$``` and backticks `
 
 - ```echo john & jane``` will return error
 - ```echo john \& jane``` will show ```john & jane```
