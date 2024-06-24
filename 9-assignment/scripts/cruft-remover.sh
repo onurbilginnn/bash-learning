@@ -13,7 +13,8 @@
 read -p "Please enter the folder path that you want to clean from crufts: " folder_path
 read -p "Please enter the days count that each file should be unmodified or to be considered cruft: " cruft_days
 
-readarray -t cruft_files < <(find $folder_path -type f -mtime $cruft_days)
+readarray -t cruft_files < <(find $folder_path -type f -mtime +$cruft_days)
+
 for cruft_file in "${cruft_files[@]}"; do
     rm -i "$cruft_file"
 done
