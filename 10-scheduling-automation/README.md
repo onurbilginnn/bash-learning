@@ -1,5 +1,6 @@
 ### Scheduling Tasks with "at" command
 
+- One time runner, no way to repeat commands
 - On Ubuntu should install `at` command -> ```sudo apt install at```, then start `at` daemon `atd`
 - ```at 9:30am``` will open `at` command line, and will run every script you write at nearest 9:30am
 - ```at -l``` will list all the scheduled jobs id
@@ -15,6 +16,7 @@
 
 ### CRON Service
 
+- ```sudo service cron status``` check cron service status
 - ```sudo service cron start``` if cron service not running
 - ```crontab -e``` for editing cron
 - in crontab there is six columns information ```m h dom mon dow command``` -> m=minute (0-59), h=hour (0-23), dom=day of the month, mon=month, dow=day of the week, and command you want to run in cron
@@ -32,7 +34,9 @@
 
 #### Cron Directories
 
-Cron directories are folders on your system where you can place scripts to run at a particular frequency
+Cron directories are folders on your system where you can place scripts to run at a particular frequency.
+
+Machine must be `on`, if it is not `on` during run command time, it will miss the schedule and can not recover missed runs.
 
 - ```./etc``` directory holds cron directories on Linux
 - ```ls /etc | grep cron``` shows cron based directories
@@ -55,3 +59,17 @@ mkdir cron.daily.2am
 crontab -e
 ```
 - crontab file add line ```00 02 * * * run-parts ~/cron.daily.2am --report```
+
+#### Anacron
+
+```diff
++ Anacron can recover missed jobs.
+```
+- By using ```/etc/anacrontab``` file, you can add cron jobs to anacron.
+- Only root user can change `/etc` files
+- In ```/etc/anacrontab``` file update SHELL variable to /bin/bash and add your script files directory path to PATH variable in the file.
+- If anacron is installed all cron directories scripts will be executed by anacron instead of cron.
+- There is no minute, hour based granularity on anacron, only daily.
+- ```period_days delay_in_minutes job_identifier command``` are the columns available for anacron.
+- ```@monthly``` period should be used for monthly anacron schedules, as month lengths are different by days
+- ```/var/spool/anacron``` is the file for storing job last runs.
