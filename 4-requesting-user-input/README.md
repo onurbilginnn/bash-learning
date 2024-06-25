@@ -19,7 +19,7 @@ Value of a special parameter is calculated for us based on our current script.
 - ```$@``` returns values of the positional parameters as ```$1 $2 $3.... $N```, provide positional parameters as unquoted separate words, that are subject to **word splitting**
 - ```"$@"``` returns values of the positional parameters as ```"$1" "$2" "$3".... "$N"```, stops **word splitting** and ensures the value of the positional parameters is exactly how they were provided by the user.
 - ```$*``` exactly same as ```$@```
-- ```"$*``` return values of the positional parameters by adding IFS variable between. Provides all positional parameters as **one word**, but separated by the **first character of the IFS** variable. NOT subject to further word splitting.<br>
+- ```"$*"``` return values of the positional parameters by adding IFS variable between. Provides all positional parameters as **one word**, but separated by the **first character of the IFS** variable. NOT subject to further word splitting.<br>
 Ex; ```IFS=,``` -> ```"$*"``` will print ```$1,$2,$3....,$N```
 
 ### READ Command
