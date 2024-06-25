@@ -153,10 +153,10 @@ A process the shell performs to split the result of some **unquoted** expansions
   - Globbing is used as a shortcut for listing the files that a command should operate on.
   - Globbing is only performed on **words** (NOT operators)
   - Globbing **patterns** are words that contain unquoted **Special Pattern Characters**:
-    - * -> Zero or more occurences of any character
-    - ? -> Any single character, at least 1 character required
-    - [] -> Any enclosed character between square brackets required -> file[abc] -> filea, fileb, filec
-    - [!] -> Any character between square brackets required -> file[!] -> filea, fileb, filec, filex, filep, etc...
+    - `*` -> Zero or more occurences of any character
+    - `?` -> Any single character, at least 1 character required
+    - `[]` -> Any enclosed character between square brackets required -> file[abc] -> filea, fileb, filec
+    - `[!]` -> Any character between square brackets required -> file[!] -> filea, fileb, filec, filex, filep, etc...
   - ```ls *.txt``` will list all txt files in the folder
   - ```ls file?.txt``` will list all file(any character).txt; file**a**.txt, file**z**.txt, file**q**.txt, etc...
   - ```ls file???.txt``` file**wza**.txt, file**ztu**.txt, file**qhg**.txt, etc...
