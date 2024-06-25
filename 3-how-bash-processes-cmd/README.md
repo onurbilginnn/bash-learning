@@ -103,7 +103,7 @@ fi
 
 Expansions in earlier **stages** are performed first.
 
-You can NOT do;
+You can NOT do; because brace expansion priority is higher than parameter expansion.
 ```
 x=10
 echo {1..$x}
