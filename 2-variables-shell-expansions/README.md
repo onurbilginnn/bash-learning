@@ -39,7 +39,7 @@ Expansions will NOT modify the parameter_value
 - ```echo ${<parameter_name>^}``` Will change parameter_value first character to upper case
 - ```echo ${<parameter_name>^^}``` Will change parameter_value characters to upper case
 - ```echo ${#<parameter_name>}``` Will show character count of parameter_value
-- ```echo ${<parameter_name>:<start_index>:<end_index>}``` Will return substring of parameter_value by start and end indexes
+- ```echo ${<parameter_name>:<start_index>:<characters_length>}``` Will return substring of parameter_value by start index to specified characters_length
 - ```echo ${<parameter_name>:<start_index>}``` Will return substring of parameter_value by start index to the end
 - ```echo ${<parameter_name>: -3:2}``` Will return substring of parameter_value like 3rd character from the end of the parameter_value and total 2 characters from it. Do NOT forget the space! <br>
 Example; numbers parameter is 0123456789 ```echo ${numbers: -3:2}``` Will result 78
