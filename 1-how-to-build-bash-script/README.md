@@ -1,6 +1,7 @@
 ### Core Components
 
 - Add ```#!/bin/bash``` on the first line of the file in order to mention that is a bash script file.
+- `#!` tells the operating system which interpreter to use when executing the script.
 - For MacOS ```/bin/bash``` directory contains old version 3.x.x you need to install latest version with HomeBrew and put latest path on top of file from brew directory ```#!/opt/homebrew/bin/bash```.
 - On terminal run ```file <bash_script_filename>``` will show the type of the file as below; <br>
 'first_script: Bourne-Again shell script text executable, ASCII text' <br>
