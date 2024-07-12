@@ -39,7 +39,7 @@ b=goodbye
 - `[[ $a = $b ]] ; echo $?` will test `a` string variable equals to `b` string variable, and print result 1 (false)
 - `[[ $a != $b ]] ; echo $?` will test `a` string variable NOT equals to `b` string variable, and print result 0 (true)
 - `[[ -z $c ]] ; echo $?` will test `c` string variable if it is null or empty result 0 (true)
-- `[[ -n $c ]] ; echo $?` will test `c` string variable if it is null or empty result 1 (false)
+- `[[ -n $c ]] ; echo $?` will test `c` string variable if it is NOT null or empty result 1 (false)
 
 #### File Test Operators
 
