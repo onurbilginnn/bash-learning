@@ -88,13 +88,13 @@ a b c
 2 - Compound commands; are essentially bash's programming constructs.
 
 ```diff
-! Each compound command starts with a **reserved word** and
-! is ended by a corresponding **reserved word**
+! Each compound command starts with a reserved word and
+! is ended by a corresponding reserved word
 ```
 
 - Compound command can be written over multiple lines;
 ```
-if [[2 -gt 1]]; then
+if [2 -gt 1]; then
 echo "hello world"
 fi
 ```
