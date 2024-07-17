@@ -18,28 +18,28 @@ echo "Selected city: $city"
 break
 done 
 
-result="Country:"
+result=""
 case "$city" in
-        Tokyo) result="$result Japan";;
-        "Los Angeles") result="$result USA";;
-        "New York") result="$result USA";;
-        "Abu Dhabi") result="$result UAE";;
-        London) result="$result UK";;
-        Manchester) result="$result UK";;
-        Moscow) result="$result Russia";;
-        Dubai) result="$result UAE";;
-        Paris) result="$result France";;
-        Bangalore) result="$result India";;
-        Pune) result="$result India";;
-        Karachi) result="$result Pakistan";;
-        Johannesburg) result="$result South Africa";;
-        Istanbul) result="$result Turkey";;
-        Nairobi) result="$result Kenya";;
-        Berlin) result="$result Germay";;
-        Milan) result="$result Italy";;
+        Tokyo) result="Japan";;
+        "Los Angeles") result="USA";;
+        "New York") result="USA";;
+        "Abu Dhabi") result="UAE";;
+        London) result="UK";;
+        Manchester) result="UK";;
+        Moscow) result="Russia";;
+        Dubai) result="UAE";;
+        Paris) result="France";;
+        Bangalore) result="India";;
+        Pune) result="India";;
+        Karachi) result="Pakistan";;
+        Johannesburg) result="South Africa";;
+        Istanbul) result="Turkey";;
+        Nairobi) result="Kenya";;
+        Berlin) result="Germay";;
+        Milan) result="Italy";;
         *) echo "Could be anywhere, I don't know!"; exit 0;;
 esac
 
-echo $result;
+echo "Country: $result";
 
 exit 0
