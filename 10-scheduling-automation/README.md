@@ -5,7 +5,7 @@
 - `at 9:30am` will open `at` command line, and will run every script you write at nearest 9:30am, `ctrl+d` will save the job.
 - `at -l` will list all the scheduled jobs id
 - `at -r <jobid>` will remove the scheduled job
-- `at -f <script_file> 9:30am` will run the script file on 9:30am
+- `at 9:30am -f <script_file>` will run the script file on 9:30am
 - `at 9am Monday -f <script_file>` will run script on next Monday 9am
 - `at 9am 12/23/2025 -f <script_file>` will run script on 23 Dec 2025 9am
 - `at 9am 23.12.2025 -f <script_file>` will run script on 23 Dec 2025 9am
